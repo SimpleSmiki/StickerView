@@ -67,6 +67,8 @@ public class StickerView extends FrameLayout {
 
     private int mTouchSlop = 3;
 
+    private int mStickerNumber = 0;
+
     private OnStickerOperationListener mOnStickerOperationListener;
 
     public StickerView(Context context) {
@@ -225,6 +227,7 @@ public class StickerView extends FrameLayout {
                     mStickers.remove(mHandlingSticker);
                     mHandlingSticker.release();
                     mHandlingSticker = null;
+                    mStickerNumber--;
                     invalidate();
                 }
 
@@ -494,6 +497,8 @@ public class StickerView extends FrameLayout {
 
         mHandlingSticker = sticker;
         mStickers.add(sticker);
+        invalidate();
+        mStickerNumber++;
     }
 
     public float[] getStickerPoints(Sticker sticker) {
@@ -564,5 +569,9 @@ public class StickerView extends FrameLayout {
         void onStickerZoomFinished(Sticker sticker);
 
         void onStickerFlipped(Sticker sticker);
+    }
+
+    public int getStickerNumber() {
+        return mStickerNumber;
     }
 }
