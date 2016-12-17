@@ -686,12 +686,4 @@ public class StickerView extends FrameLayout {
 
     void onStickerDoubleTapped(Sticker sticker);
   }
-
-  public int getStickerNumber() {
-        return stickers.size();
-    }
-
-    public int getStickerNumber() {
-        return mStickerNumber;
-    }
 }
