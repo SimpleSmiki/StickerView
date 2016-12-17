@@ -74,9 +74,8 @@ public class StickerView extends FrameLayout {
 
   private long lastClickTime = 0;
   private int minClickDelayTime = DEFAULT_MIN_CLICK_DELAY_TIME;
-    private int mStickerNumber = 0;
 
-    private OnStickerOperationListener mOnStickerOperationListener;
+  private OnStickerOperationListener mOnStickerOperationListener;
 
   public StickerView(Context context) {
     this(context, null);
@@ -251,8 +250,8 @@ public class StickerView extends FrameLayout {
           }
           stickers.remove(handlingSticker);
           handlingSticker.release();
-          handlingSticker = null;mStickerNumber--;
-            invalidate();
+          handlingSticker = null;
+          invalidate();
         }
 
         if (currentMode == ActionMode.FLIP_HORIZONTAL && handlingSticker != null) {
@@ -589,7 +588,6 @@ public class StickerView extends FrameLayout {
     stickers.add(sticker);
 
     invalidate();
-        mStickerNumber++;
   }
 
   public float[] getStickerPoints(Sticker sticker) {
@@ -689,7 +687,7 @@ public class StickerView extends FrameLayout {
     void onStickerDoubleTapped(Sticker sticker);
   }
 
-    public int getStickerNumber() {
-        return mStickerNumber;
+  public int getStickerNumber() {
+        return stickers.size();
     }
 }
