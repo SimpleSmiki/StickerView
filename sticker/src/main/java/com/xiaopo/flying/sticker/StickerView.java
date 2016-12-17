@@ -690,4 +690,8 @@ public class StickerView extends FrameLayout {
   public int getStickerNumber() {
         return stickers.size();
     }
+
+    public int getStickerNumber() {
+        return mStickerNumber;
+    }
 }
